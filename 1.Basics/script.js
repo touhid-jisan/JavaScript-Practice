@@ -56,7 +56,7 @@ console.log(firstName + ' '+ lastName);
 
 
 /************************************************************
-*                   3 - Basic operation
+*                   3 - Basic operator
 *************************************************************
 */
 /*
@@ -151,13 +151,152 @@ var bmiMark = massMark / (heightMark*heightMark);
 var bmiJohn = massJohn / (heightJohn*heightJohn);
 console.log(bmiMark, bmiJohn);
 
-var flag = bmiMark > bmiJohn;
-console.log('Is Mark\'s BMI higher than John\'s? '+ flag);
+if(bmiMark > bmiJhon) {
+    console.log('Mark\'s BMI is higher than John\'s BMI');
+} else {
+    console.log('John\'s BMI is higher than Mark\'s BMI');
+}
 
 */
 
 
+/***********************************************************
+*                   5 - if/else statement
+************************************************************
+*/
 
+/*
+var firstName = 'Jhon';
+var civilStatus = 'single';
+if(civilStatus === 'married') {
+    console.log(firstName + ' is Married');
+} else {
+    console.log(firstName + ' will hopefully marry soon');
+}
+
+var isMarried = false;
+if(isMarried) {
+    console.log(firstName + ' is Married');
+}else {
+    console.log(firstName + ' will hopefully marry soon');
+}
+*/
+
+/***********************************************************
+*                   6 - Boolean logic
+************************************************************
+*/
+
+/*
+var firstName = 'John';
+var age = 29;
+if(age < 13) {
+    console.log(firstName + ' is a boy.');
+} else if(age >= 13 && age <20) {
+    console.log(firstName + ' is a teenager.');
+} else if(age >=20 && age <30) {
+    console.log(firstName + ' is a young boy.');
+} else {
+    console.log(firstName + ' is a man.');
+}
+*/
+
+
+/***********************************************************
+*       7 - Ternary operator and Switch statement
+************************************************************
+*/
+
+/*
+// Ternary operator
+var firstName = 'John';
+var age = 16;
+
+age >= 18 ? console.log(firstName + ' drinks beer') : console.log(firstName + ' drinks juice');
+
+var canDrink = (age>=18) ? 'bear': 'juice';
+console.log(firstName + ' drinks ' + canDrink);
+
+// Switch statement
+var job = prompt('Enter your profession');
+
+switch(job) {
+    case 'Teacher':
+    case 'Instructure': //same goes for java ;)
+        console.log(firstName + ' teaches kids how to code!');
+        break;
+    case 'Drive':
+        console.log(firstName + ' knows how to drive.');
+        break;
+    case 'Designer': 
+        console.log(firstName + ' designs good websites');
+        break;
+    default:
+        console.log(firstName + ' is good at his job');
+}
+
+
+age 15;
+switch(true) {
+    case age<13:
+        console.log(firstName + ' is a boy.');
+        break;
+    case age >= 13 && age < 20:
+        console.log(firstName + ' is a teenager.');
+        break;
+    case age >= 20 && age < 30: 
+        console.log(firstName + ' is a young boy.');
+        break;
+    default:
+        console.log(firstName + ' is a man.');
+}
+*/
+
+
+/***********************************************************
+*    8 - Truthy and Falsy values abd Equality operator
+************************************************************
+*/
+
+// falsy values: undefined, null, 0 '', NaN
+// truthy vaues: all the values that are not falsy
+var height;
+if(height) {
+    console.log('Variable is defined');
+} else {
+    console.log('Variable is not defined');
+}
+
+height =0;
+// 0 is falsy value
+if(height) {
+    console.log('for 0 = Variable is defined');
+} else {
+    console.log('for 0 = Variable is not defined');
+}
+
+if(height || height === 0) {
+    console.log('for 0 = Variable is defined');
+} else {
+    console.log('for 0 = Variable is not defined');
+}
+
+// Equality operator
+height =23;
+// here '23' is a string and we are using '=='. so '==' converts '23'(string) into integer
+// but if we use '===' then it will strictly match 23(int) with'23'(string).
+// 23 == '23' return true
+// 23 === '23' return false
+if(height == '23')  {
+    console.log('the === operator does type coercion');
+}
+
+
+
+/***********************************************************
+*                   4 - Operator precedence
+************************************************************
+*/
 
 
 
