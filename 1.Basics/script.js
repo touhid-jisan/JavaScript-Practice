@@ -260,6 +260,7 @@ switch(true) {
 
 // falsy values: undefined, null, 0 '', NaN
 // truthy vaues: all the values that are not falsy
+/*
 var height;
 if(height) {
     console.log('Variable is defined');
@@ -290,11 +291,242 @@ height =23;
 if(height == '23')  {
     console.log('the === operator does type coercion');
 }
+*/
+
+
+/***********************************************************
+*                   Coding Chalange - 2
+************************************************************
+*/
+/*
+John and Mike both play basketball in different teams. In the latest 3 games, John's team scored 89, 120 and 103 points, while Mike's team scored 116, 94 and 123 points.
+1. Calculate the average score for each team
+2. Decide which teams wins in average (highest average score), and print the winner to the console. Also include the average score in the output.
+3. Then change the scores to show different winners. Don't forget to take into account there might be a draw (the same average score)
+4. EXTRA: Mary also plays basketball, and her team scored 97, 134 and 105 points. Like before, log the average winner to the console. HINT: you will need the && operator to take the decision. If you can't solve this one, just watch the solution, it's no problem :)
+5. Like before, change the scores to generate different winners, keeping in mind there might be draws.
+*/
+
+/*
+var johnTeamAvg = (110 + 120+ 103)/3;
+var mikeTeamAvg = (116 + 94 + 123)/3
+console.log(johnTeamAvg, mikeTeamAvg);
+if(johnTeamAvg > mikeTeamAvg) {
+    console.log('Joh\'s Team Wins');
+} else if(mikeTeamAvg > johnTeamAvg) {
+    console.log('Mike\'s Team Wins');
+} else{
+    console.log('Draw');
+}
+
+var maryTeamAvg = (97+134+105)/3;
+
+console.log(johnTeamAvg, mikeTeamAvg, maryTeamAvg);
+
+if(johnTeamAvg > mikeTeamAvg && johnTeamAvg >maryTeamAvg) {
+    console.log('Joh\'s Team Wins with ' + johnTeamAvg );
+} else if(mikeTeamAvg > johnTeamAvg && mikeTeamAvg > maryTeamAvg) {
+    console.log('Mike\'s Team Wins with ' + mikeTeamAvg);
+} else if(maryTeamAvg > johnTeamAvg && maryTeamAvg > mikeTeamAvg) {
+     console.log('Mary\'s Team Wins with ' + maryTeamAvg);
+} else {
+     console.log('Draw');
+}
+
+*/
+
+
+/***********************************************************
+*                       9 - Functions
+************************************************************
+*/
+/*
+var touhidAge = calculateAge(1994);
+var israAge = calculateAge(1995);
+
+var touhidString = showBirth('Touhid', 1994, 7, 6, touhidAge);
+var israString = showBirth('Isra', 1995, 8, 6, israAge);
+
+function calculateAge(year) {
+    return 2020 - year;
+}
+
+function showBirth(name, birthYear, birthMonth, birthDate, age) {
+    return (name+ ' born on, Year : '+ birthYear + ', Month : '+birthMonth + ', Date : ' + birthDate +'. And '+age+ ' years old.\n');
+}
+
+console.log(touhidString,israString);
+*/
 
 
 
 /***********************************************************
-*                   4 - Operator precedence
+*                 10 - Function Statement
+************************************************************
+*/
+
+/*
+// Function declaration
+//function whatDoYouDo(job, firstName) {}
+
+// Function expression
+var whatDoYouDo = function(job,  firstName) {
+    switch(job) {
+        case 'Teacher':
+            return firstName + ' teaches kids how to code';
+            // as we are returning something we donnot use break. ;)  
+        case 'Driver':
+            return firstName + ' drives BMW';
+        case 'Designer':
+            return firstName + ' designs beautiful websites';
+        default:
+            return firstName + ' does something else';
+    }
+}
+
+var result = whatDoYouDo('Designer', 'Touhid');
+console.log(result);
+console.log(whatDoYouDo('Teacher', 'Isra'));
+*/
+
+
+/***********************************************************
+*                   11 - Arrays
+************************************************************
+*/
+
+/*
+var arr1 = ['touhid', 'islam', 'jisan'];
+var arr2 = new Array(1990,1991, 1992);
+console.log(arr1[2]);
+console.log(arr2.length);
+
+arr1[2] = 'isra';
+arr1[arr1.length] = 'Jisan';
+console.log(arr1[2]);
+console.log(arr1[3]);
+
+// different data types
+
+var jhon = ['Jhon', 'Smith', 1990, 'teacher', false];
+jhon.push('blue');
+console.log(jhon);
+jhon.pop();
+console.log(jhon);
+jhon.unshift('Mr.');
+console.log(jhon);
+
+console.log(jhon.indexOf(1990));
+
+var isDesigner = jhon.indexOf('designer') === -1 ? 'Jhon is not a desginer' : 'Jhon is a designer';
+console.log(isDesigner);
+
+*/
+
+/***********************************************************
+*                  12 - Objects and Properties
+************************************************************
+*/
+
+
+/*
+// Object Literal
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false
+};
+
+var x = 'firstName';
+console.log(john);
+console.log(john.family);
+console.log(john['lastName']);
+console.log(john[x]);
+
+john.job = 'designer';
+john.isMarried = true;
+console.log(john);
+
+// New Object Syntex
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] =  'Smit';
+
+console.log(jane);
+/*
+
+
+/***********************************************************
+*                   13 - Objects and Methods
+************************************************************
+*/
+
+/*
+var john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    birthYear: 1990,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher',
+    isMarried: false,
+    calAge: function() {
+        this.age =  2020-this.birthYear;
+    }
+};
+
+john.calAge();
+console.log(john);
+
+*/
+
+
+
+
+/***********************************************************
+*                   14 - Loops and Iteration
+************************************************************
+*/
+
+for(var i=0; i<10; i+=2) {
+    console.log(i);
+}
+
+var jhon = ['Jhon', 'Smith', 1990, 'teacher', false];
+console.log(jhon[0]);
+
+for(var i=0; i<jhon.length; i++) {
+    console.log(jhon[i]);
+}
+
+// While
+var i=0;
+while(i<jhon.length) {
+    console.log(jhon[i]);
+    i++;
+}
+
+
+// Continue and Break Statements
+console.log('----')
+for(var i=0; i<jhon.length; i++) {
+    if(typeof jhon[i] !== 'string') continue;
+    console.log(jhon[i]);
+}
+
+console.log('----')
+for(var i=0; i<jhon.length; i++) {
+    if(typeof jhon[i] !== 'string') break;
+    console.log(jhon[i]);
+}
+
+
+
+/***********************************************************
+*                   Coding Chalange - 2
 ************************************************************
 */
 
@@ -303,6 +535,77 @@ if(height == '23')  {
 
 
 
+/***********************************************************
+*                   Coding Chalange - 2
+************************************************************
+*/
+
+
+
+
+
+
+/***********************************************************
+*                   Coding Chalange - 2
+************************************************************
+*/
+
+
+
+
+
+
+/***********************************************************
+*                   Coding Chalange - 2
+************************************************************
+*/
+
+
+
+
+
+/***********************************************************
+*                   Coding Chalange - 2
+************************************************************
+*/
+
+
+
+
+
+
+/***********************************************************
+*                   Coding Chalange - 2
+************************************************************
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 
