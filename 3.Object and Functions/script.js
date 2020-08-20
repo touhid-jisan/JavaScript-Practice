@@ -165,7 +165,7 @@ interviewQuestion('Designer')('Touhid');
 /**********************************************************************************
 *			Immediately Invoked Function Expressions (IIFE)
 ***********************************************************************************/
-
+/*
 function game() {
 	var score = Math.floor(Math.random() * 10 )+ 1;
 	console.log(score);
@@ -182,11 +182,11 @@ game();
 	var score = Math.floor(Math.random() * 20 )+ 1;
 	console.log(score - number);
 })(8);
-
+*/
 /************************************************
 *				Closures
 *************************************************/
-
+/*
 function retirement(retirementAge) {
 	var a  = ' years left until requirement';
 	return function(yearsOfBirth) {
@@ -206,9 +206,9 @@ var retirementIceland = retirement(67);
 retirementGermany(1990);
 retirementIceland(1990);
 
-/*****************
+//----------------------------------------------------
 // 	chalange (make this interview question in closure)
-*****************/
+//-----------------------------------------------------
 //function interviewQuestion(job) {
 //	if(job === 'Designer') {
 //		return function(name) {
@@ -242,5 +242,86 @@ interviewQuestion('Designer')('Touhid');
 // same as previous line
 var jobName = interviewQuestion('Teacher');
 jobName('Jisan');
+*/
+
+/************************************************
+*			Bind, Call and Apply
+*************************************************/
+
+var john = {
+	name : 'John',
+	age: 26,
+	job: 'Teacher',
+	presentation : function(style, timeOfDay) {
+		if(style === 'formal') {
+			console.log('Good ' + timeOfDay + ', Ladis and Gentlemen! I\'m '+ this.name + ', I\'m '+ this.job + ', I\'m ' + this.age + ' years old');
+		} else if (style === 'friendly') {
+			console.log('Hey! whats up! I\'m '+ this.name + ', I\'m '+ this.job + ', I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay);
+		}
+	}
+}
+
+var emily = {
+	name: 'Emily',
+	age : 35,
+	job : 'designer'
+}
+
+// call method
+john.presentation('friendly', 'morning') 
+// call method allows using john object presentation method
+john.presentation.call(emily, 'friendly', 'afternoon'); // this is called method borrowing
+john.presentation('friendly', 'morning')
+
+
+// apply method
+//john.presentation.apply(emily, ['friendly', 'afternoon']);
+
+// bind method - bind doesn't immediately call a function, instead generate a copy of function
+var johnFriendly = john.presentation.bind(john, 'friendly'); // bind allowed us to preset some arguments its called 
+
+johnFriendly('morning');
+johnFriendly('afternoon');
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+emilyFormal('afternoon');
+
+// bind example 2
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+	var arrRes = [];
+	for(var i=0; i<arr.length; i++) {
+		arrRes.push(fn(arr[i]));
+	}
+	return arrRes;
+}
+
+function calAge(el) {
+	return 2020 - el;
+}
+
+function isFullAge(limit, el) {
+	return el >= limit;
+}
+
+var ages = arrayCalc(years, calAge);
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+console.log(ages);
+console.log(fullJapan);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
