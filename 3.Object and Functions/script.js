@@ -135,7 +135,7 @@ console.log(heartRates);
 /**********************************************************************************
 *			First Class Functions: Functions Returning Function
 ***********************************************************************************/
-
+/*
 function interviewQuestion(job) {
 	if(job === 'Designer') {
 		return function(name) {
@@ -161,10 +161,86 @@ designerQuestion('Mark');
 designerQuestion('Mike');
 
 interviewQuestion('Designer')('Touhid');
+*/
+/**********************************************************************************
+*			Immediately Invoked Function Expressions (IIFE)
+***********************************************************************************/
+
+function game() {
+	var score = Math.floor(Math.random() * 10 )+ 1;
+	console.log(score);
+}
+game();
+// Same as
+
+(function() {
+	var score = Math.floor(Math.random() * 10 )+ 1;
+	console.log(score);
+})();
+
+(function(number) {
+	var score = Math.floor(Math.random() * 20 )+ 1;
+	console.log(score - number);
+})(8);
+
+/************************************************
+*				Closures
+*************************************************/
+
+function retirement(retirementAge) {
+	var a  = ' years left until requirement';
+	return function(yearsOfBirth) {
+		var age = 2020 - yearsOfBirth;
+		console.log((retirementAge - age) + a);
+	}
+}
+var retirementUS = retirement(66);
+retirementUS(1960);
+//same as last 2 line
+retirement(67)(1966);
 
 
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
 
+retirementGermany(1990);
+retirementIceland(1990);
 
+/*****************
+// 	chalange (make this interview question in closure)
+*****************/
+//function interviewQuestion(job) {
+//	if(job === 'Designer') {
+//		return function(name) {
+//			console.log(name + ', can you please explaing what UX design is?');
+//		}
+//	} else if(job === 'Teacher') {
+//		return function(name) {
+//			console.log('What subject do you teach, ' + name);
+//		}
+//	} else {
+//		return function(name) {
+//			console.log('Hey '+name+ '! what do you do?');
+//		}
+//	}
+//}
 
+function interviewQuestion(job) {
+	//in closure we always return same function
+	return function(name) {
+		if(job === 'Designer') {
+			console.log(name + ', can you please explaing what UX design is?');
+		} else if(job === 'Teacher') {
+			console.log('What subject do you teach, ' + name);
+		} else {
+			console.log('Hey '+name+ '! what do you do?');
+		}
+	}
+}
+
+interviewQuestion('Designer')('Touhid');
+// same as previous line
+var jobName = interviewQuestion('Teacher');
+jobName('Jisan');
 
 
