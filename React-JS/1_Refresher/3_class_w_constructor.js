@@ -1,3 +1,5 @@
+// ES6 
+
 class Human {
     constructor() {
         this.gender = 'female';
